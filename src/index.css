@@ -3,6 +3,8 @@
   --amazon-background-grey : hsl(180, 8%, 92%);
   --amazon-orange: hsl(34, 58%, 53%);
   --amazon-orange-cart: hsl(34, 97%, 48%);
+  --amazon-orange-button: hsl(43, 85%, 62%);
+
 }
 
 * {

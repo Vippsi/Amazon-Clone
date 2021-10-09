@@ -1,0 +1,28 @@
+.checkoutProduct {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.checkoutProduct__info {
+  padding-left: 2rem;
+}
+
+.checkoutProduct__image {
+  object-fit: contain;
+  min-width: 18rem;
+  max-width: 18rem;
+  height: 18rem;
+}
+
+.checkoutProduct__info > button {
+  background: var(--amazon-orange-button);
+  border: 1px solid;
+  margin-top: 1rem;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+}
+
+.checkoutProduct__title {
+  font-size: 1.7rem;
+  font-weight: 800;
+}

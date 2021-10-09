@@ -1,15 +1,31 @@
 import React from 'react';
 import '../css/product.css';
+import { useStateValue } from '../StateProvider';
+import { IProductProps } from '../interfaces';
 
-interface ProductProps {
-  title?: string;
-  image?: string;
-  price?: number;
-  rating?: number;
-  id?: number;
-}
+const Product: React.FC<IProductProps> = ({
+  title,
+  image,
+  price,
+  rating,
+  id,
+}) => {
+  const [{ basket }, dispatch] = useStateValue();
+  console.log(basket);
 
-const Product: React.FC<ProductProps> = ({ title, image, price, rating }) => {
+  const addToBasket = () => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      payload: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
+
   return (
     <div
       className='
@@ -30,11 +46,14 @@ const Product: React.FC<ProductProps> = ({ title, image, price, rating }) => {
         </div>
       </div>
 
-      <img
-        src={image}
-        alt=''
-      />
-      <button>Add to basket</button>
+      <img src={image} alt='' />
+      <button
+        onClick={() => {
+          addToBasket();
+        }}
+      >
+        Add to basket
+      </button>
     </div>
   );
 };
