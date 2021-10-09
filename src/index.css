@@ -1,21 +1,27 @@
 :root {
   --amazon-background: hsl(214, 27%, 10%);
+  --amazon-background-grey : hsl(180, 8%, 92%);
   --amazon-orange: hsl(34, 58%, 53%);
   --amazon-orange-cart: hsl(34, 97%, 48%);
 }
 
 * {
   margin: 0;
+}
+
+html {
   font-size: 62.5%;
 }
 
 body {
+  background: var(--amazon-background-grey);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1.6rem;
 }
 
 code {
