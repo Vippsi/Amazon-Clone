@@ -2,12 +2,14 @@ import React from 'react';
 import amazonLogo from '../imgs/amazon_logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import '../css/header.css';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = (props) => {
   return (
     <div className='header'>
-      <img className='header__logo' src={amazonLogo} alt='' />
-
+      <Link to='/'>
+        <img className='header__logo' src={amazonLogo} alt='' />
+      </Link>
       <div className='header__search'>
         <input className='header__searchInput' type='text' />
         <SearchIcon className='header__searchIcon' />
@@ -25,10 +27,11 @@ const Header: React.FC = (props) => {
         <span className='header__optionLineOne'>Your</span>
         <span className='header__optionLineTwo'>Prime</span>
       </div>
-      <div className='header__optionBasket'>
-        <span className='header__optionLineTwo header__basketCount'>0
-        </span>
-      </div>
+      <Link to='/checkout'>
+        <div className='header__optionBasket'>
+          <span className='header__optionLineTwo header__basketCount'>0</span>
+        </div>
+      </Link>
     </div>
   );
 };
