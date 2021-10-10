@@ -11,7 +11,6 @@ const Product: React.FC<IProductProps> = ({
   id,
 }) => {
   const [{ basket }, dispatch] = useStateValue();
-  console.log(basket);
 
   const addToBasket = () => {
     dispatch({

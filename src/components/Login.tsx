@@ -1,37 +1,50 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import '../css/login.css';
-import { fireAuth } from '../firebase';
+import { auth } from '../firebase';
 
 const Login: React.FC = () => {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const signIn = (e: React.FormEvent) => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push('/');
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   const register = (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(fireAuth)
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((auth: any) => {
-  //       console.log(auth);
-  //     })
-  //     .catch((error: any) => alert(error.message));
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth: Object) => {
+        console.log(auth);
+        if (auth) {
+          history.push('/');
+        }
+      })
+      .catch((error: any) => alert(error.message));
   };
 
   return (
     <div className='login'>
-      {/* <Link to='/'>
+      <Link to='/'>
         <img
           className='login__logo'
           src='https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
           alt=''
         />
-      </Link> */}
+      </Link>
       <div className='login__container'>
         <h1>Sign-in</h1>
         <form action=''>
@@ -62,9 +75,9 @@ const Login: React.FC = () => {
           Interest-Based Ads Notice.
         </p>
 
-        {/* <button onClick={register} className='login__registerButton'>
+        <button onClick={register} className='login__registerButton'>
           Create your Amazon Account
-        </button> */}
+        </button>
       </div>
     </div>
   );

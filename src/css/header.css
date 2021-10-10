@@ -47,13 +47,14 @@
 .header__optionBasket {
   display: flex;
   align-items: center;
+  justify-content: center;
   color: white;
   background-image: url(../imgs/amazon_sprite.png);
   background-position: -10px -340px;
   width: 39px;
-  height: 26px;
+  height: 30px;
   margin-right: 1rem;
-  position: relative;
+
 }
 
 .header__checkoutLink {
@@ -61,12 +62,9 @@
 }
 
 .header__basketCount {
-  position: absolute;
-  right: 10px;
-  top: -3px;
-  /* margin: 0 4rem 1.2rem 1.8rem; */
+  font-size: 1.4rem;
+  margin: 0 1.4rem 2rem 1.8rem;
   color: var(--amazon-orange-cart);
-  text-align: right;
 }
 
 

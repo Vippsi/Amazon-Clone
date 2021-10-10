@@ -1,22 +1,21 @@
+import { IProductProps } from './interfaces';
 
 export const initialState = {
-  basket: [] as Array<BasketProvider>,
+  basket: [] as Array<IProductProps>,
+  user: null,
 };
 type AppState = typeof initialState;
-type Action = { type: string; payload: number };
+type Action =
+  | { type: 'ADD_TO_BASKET'; payload: number }
+  | { type: 'REMOVE_FROM_BASKET'; payload: number }
+  | { type: 'SET_USER'; payload: Object };
 
-interface BasketProvider {
-  price: number;
-  title: string;
-  image: string;
-  rating?: number;
-  id: number;
-}
-
-export const getBasketTotal = (basket: Array<BasketProvider>) => {
+export const getBasketTotal = (basket: Array<IProductProps>) => {
   let total = 0;
   basket.forEach((item) => {
-    total += item.price;
+    if (item.price) {
+      total += item.price;
+    }
   });
   return total;
 };
@@ -41,10 +40,15 @@ const reducer = (state: AppState, action: Action) => {
       } else {
         console.warn('cant remove', action.payload);
       }
-
       return {
         ...state,
         basket: newBasket,
+      };
+
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.payload,
       };
 
     default:

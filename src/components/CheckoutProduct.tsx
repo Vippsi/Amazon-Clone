@@ -1,16 +1,9 @@
 import React from 'react';
 import '../css/checkoutProduct.css';
+import { IProductProps } from '../interfaces';
 import { useStateValue } from '../StateProvider';
 
-interface ProductProps {
-  title?: string;
-  image?: string;
-  price?: number;
-  rating?: number;
-  id?: number;
-}
-
-const CheckoutProduct: React.FC<ProductProps> = ({
+const CheckoutProduct: React.FC<IProductProps> = ({
   title,
   image,
   price,
