@@ -4,6 +4,7 @@ interface IProductProps {
     price: number;
     rating: number;
     id: number;
+    hideButton?: boolean
   }
 
   export type {

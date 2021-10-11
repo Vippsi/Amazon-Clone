@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             id={983320}
             title='RTX 3090'
             image='https://m.media-amazon.com/images/I/81-GWj0nEkL._AC_SL1500_.jpg'
-            price={200.0}
+            price={200.01}
             rating={3}
           />
           <Product

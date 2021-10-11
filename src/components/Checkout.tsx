@@ -6,7 +6,7 @@ import CheckoutProduct from './CheckoutProduct';
 import { IProductProps } from '../interfaces';
 
 const Checkout: React.FC = () => {
-  const [{ basket }] = useStateValue();
+  const [{ basket,user }] = useStateValue();
 
   return (
     <div className='checkout'>
@@ -17,6 +17,7 @@ const Checkout: React.FC = () => {
           className='checkout__ad'
         />
         <div>
+          <h3>Hello, {user?.email}</h3>
           <h2 className='checkout__title'>Your shopping Basket</h2>
           {basket.map((item: IProductProps) => (
             <CheckoutProduct

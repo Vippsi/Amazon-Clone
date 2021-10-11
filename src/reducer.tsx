@@ -8,7 +8,8 @@ type AppState = typeof initialState;
 type Action =
   | { type: 'ADD_TO_BASKET'; payload: number }
   | { type: 'REMOVE_FROM_BASKET'; payload: number }
-  | { type: 'SET_USER'; payload: Object };
+  | { type: 'SET_USER'; payload: Object }
+  | { type: 'EMPTY_BASKET'; payload: null };
 
 export const getBasketTotal = (basket: Array<IProductProps>) => {
   let total = 0;
@@ -21,7 +22,6 @@ export const getBasketTotal = (basket: Array<IProductProps>) => {
 };
 
 const reducer = (state: AppState, action: Action) => {
-  console.log(action);
   switch (action.type) {
     case 'ADD_TO_BASKET':
       return {
@@ -49,6 +49,12 @@ const reducer = (state: AppState, action: Action) => {
       return {
         ...state,
         user: action.payload,
+      };
+
+    case 'EMPTY_BASKET':
+      return {
+        ...state,
+        basket: [] as Array<IProductProps>,
       };
 
     default:

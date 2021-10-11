@@ -9,6 +9,7 @@ const CheckoutProduct: React.FC<IProductProps> = ({
   price,
   rating,
   id,
+  hideButton
 }) => {
     const [{basket}, dispatch] = useStateValue()
 
@@ -36,7 +37,9 @@ const CheckoutProduct: React.FC<IProductProps> = ({
               <span>⭐</span>
             ))}
         </div>
+        {!hideButton && (
         <button onClick={removeFromBasket}>Remove from Basket</button>
+        )}
       </div>
     </div>
   );

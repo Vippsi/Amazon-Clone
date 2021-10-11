@@ -28,7 +28,6 @@ const Login: React.FC = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth: Object) => {
-        console.log(auth);
         if (auth) {
           history.push('/');
         }

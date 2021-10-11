@@ -1,6 +1,6 @@
 :root {
   --amazon-background: hsl(214, 27%, 10%);
-  --amazon-background-grey : hsl(180, 8%, 92%);
+  --amazon-background-grey : hsl(180, 7%, 92%);
   --amazon-orange: hsl(34, 58%, 53%);
   --amazon-orange-cart: hsl(34, 97%, 48%);
   --amazon-orange-button: hsl(43, 85%, 62%);
@@ -24,6 +24,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
+}
+
+button:visited, a {
+  text-decoration: none;
 }
 
 code {
