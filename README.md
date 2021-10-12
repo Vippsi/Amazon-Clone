@@ -50,3 +50,6 @@ Backend:
 
 ## Live Site:
 https://clone-f29f9.web.app/
+
+## Tutorial this project was based on:
+https://www.youtube.com/watch?v=RDV3Z1KCBvo&t=29690s
